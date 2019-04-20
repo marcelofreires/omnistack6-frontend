@@ -26,9 +26,9 @@ export default class Box extends Component {
 
   subscribeToNewFiles = () => {
     const box = this.props.match.params.id;
-    const io = socket('https://omnistackbackend6.herokuapp.com');
+    const io = socket(api.defaults.baseURL);
 
-    io.emit('conectRoom', box);
+    io.emit('connectRoom', box);
 
     io.on('file', data => {
       this.setState({
